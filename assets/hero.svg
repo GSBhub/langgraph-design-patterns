@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 260" width="980" height="260" role="img" aria-label="Routing hero (animated)">
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#64748b;
+      --blue:#2563eb;
+      --blue2:#60a5fa;
+      --violet:#7c3aed;
+      --red:#ef4444;
+      --bg:#ffffff;
+      --soft:#e2e8f0;
+    }
+    text{ font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    .box{ fill:#fff; stroke:var(--ink); stroke-width:2.6; }
+    .soft{ fill:var(--soft); }
+    .hint{ font-size:12px; fill:var(--muted); }
+    .label{ font-size:14px; fill:var(--ink); }
+    .k{ font-size:12px; fill:var(--ink); opacity:.9; }
+
+    .wire{ fill:none; stroke:var(--muted); stroke-width:2.6; stroke-linecap:round; opacity:.55; }
+    .wire.flow{ stroke-dasharray: 6 10; animation: dash 1.8s linear infinite; }
+    .wire.active{ opacity:1; filter: drop-shadow(0 0 6px rgba(37,99,235,.18)); }
+
+    .token{
+      fill:none; stroke:var(--blue); stroke-width:6; stroke-linecap:round;
+      stroke-dasharray:2 98;
+    }
+    .token.run{ animation: travel 1.0s linear infinite; }
+
+    .pulse{ animation: pulse 1.35s ease-in-out infinite; transform-origin: 440px 130px; }
+    .spark{ animation: spark 1.0s ease-in-out infinite; transform-origin: 0 0; opacity:0; }
+
+    .pick1{ animation: pick1 6s ease-in-out infinite; }
+    .pick2{ animation: pick2 6s ease-in-out infinite; }
+    .pick3{ animation: pick3 6s ease-in-out infinite; }
+
+    @keyframes dash{ to{ stroke-dashoffset:-64; } }
+    @keyframes travel{ to{ stroke-dashoffset:-100; } }
+    @keyframes pulse{ 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.03);} }
+
+    @keyframes pick1{ 0%,30%{ opacity:1 } 33%,100%{ opacity:.25 } }
+    @keyframes pick2{ 0%,33%{ opacity:.25 } 36%,63%{ opacity:1 } 66%,100%{ opacity:.25 } }
+    @keyframes pick3{ 0%,66%{ opacity:.25 } 69%,96%{ opacity:1 } 100%{ opacity:.25 } }
+
+    @keyframes spark{
+      0% { opacity:0; transform: translateY(0); }
+      35% { opacity:.9; transform: translateY(-2px); }
+      100% { opacity:0; transform: translateY(-10px); }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="var(--blue2)"/>
+      <stop offset="1" stop-color="var(--blue)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card background (subtle) -->
+  <rect x="40" y="34" width="900" height="192" rx="18" fill="#ffffff" opacity=".0"/>
+
+  <!-- Left: user -->
+  <rect x="70" y="108" width="170" height="64" rx="16" class="box"/>
+  <text x="90" y="132" class="hint">user</text>
+  <text x="90" y="156" class="label">message</text>
+  <rect x="170" y="124" width="54" height="32" rx="10" fill="var(--soft)" stroke="var(--ink)" stroke-width="2"/>
+  <text x="197" y="145" text-anchor="middle" class="k">?</text>
+
+  <!-- Middle: router (pixel bot + contract) -->
+  <g class="pulse">
+    <rect x="330" y="86" width="290" height="108" rx="18" class="box"/>
+    <text x="352" y="118" class="hint">router output</text>
+    <rect x="352" y="130" width="150" height="32" rx="12" fill="var(--soft)" stroke="var(--ink)" stroke-width="2"/>
+    <text x="365" y="151" class="k">route + reason</text>
+
+    <!-- Tiny pixel bot (matches mascot style) -->
+    <g transform="translate(540 104)">
+      <rect x="0" y="0" width="62" height="62" rx="14" fill="url(#gBlue)" stroke="var(--ink)" stroke-width="3"/>
+      <rect x="8" y="10" width="46" height="24" rx="9" fill="#0b1220" opacity=".92"/>
+      <rect x="16" y="16" width="7" height="10" rx="2" fill="#fff" opacity=".92"/>
+      <rect x="39" y="16" width="7" height="10" rx="2" fill="#fff" opacity=".92"/>
+      <rect x="22" y="28" width="18" height="4" rx="2" fill="#fff" opacity=".35"/>
+      <rect x="14" y="40" width="34" height="10" rx="5" fill="var(--violet)" opacity=".18" stroke="var(--violet)" stroke-width="2"/>
+      <text x="31" y="48" text-anchor="middle" class="hint" fill="var(--violet)">route</text>
+    </g>
+  </g>
+
+  <!-- Right: routes (color-coded + icons) -->
+  <g>
+    <!-- normal_chat -->
+    <rect x="720" y="64" width="210" height="48" rx="14" fill="#eff6ff" stroke="var(--ink)" stroke-width="2.6"/>
+    <rect x="734" y="76" width="24" height="24" rx="8" fill="var(--blue)" opacity=".18" stroke="var(--blue)" stroke-width="2"/>
+    <path d="M740 88 h12" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M740 92 h8" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="770" y="95" class="label">normal_chat</text>
+
+    <!-- rag_chat -->
+    <rect x="720" y="116" width="210" height="48" rx="14" fill="#f5f3ff" stroke="var(--ink)" stroke-width="2.6"/>
+    <rect x="734" y="128" width="24" height="24" rx="8" fill="var(--violet)" opacity=".18" stroke="var(--violet)" stroke-width="2"/>
+    <path d="M740 146 h12" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M740 140 h12" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="770" y="147" class="label">rag_chat</text>
+
+    <!-- escalate_human -->
+    <rect x="720" y="168" width="210" height="48" rx="14" fill="#fef2f2" stroke="var(--ink)" stroke-width="2.6"/>
+    <rect x="734" y="180" width="24" height="24" rx="8" fill="var(--red)" opacity=".16" stroke="var(--red)" stroke-width="2"/>
+    <circle cx="746" cy="190" r="4" fill="var(--red)" opacity=".85"/>
+    <path d="M740 202 c4-6 16-6 20 0" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <text x="770" y="199" class="label">escalate_human</text>
+  </g>
+
+  <!-- Wires -->
+  <path class="wire flow" d="M240 140 C 290 140, 305 140, 330 140"/>
+  <path class="wire flow" d="M620 122 C 668 98, 690 84, 720 88"/>
+  <path class="wire flow" d="M620 140 C 668 140, 690 140, 720 140"/>
+  <path class="wire flow" d="M620 158 C 668 182, 690 196, 720 192"/>
+
+  <!-- Active highlight cycles -->
+  <path class="wire active pick1" d="M620 122 C 668 98, 690 84, 720 88" stroke="var(--blue)"/>
+  <path class="wire active pick2" d="M620 140 C 668 140, 690 140, 720 140" stroke="var(--violet)"/>
+  <path class="wire active pick3" d="M620 158 C 668 182, 690 196, 720 192" stroke="var(--red)"/>
+
+  <!-- Token dots -->
+  <path class="token run" pathLength="100" d="M240 140 C 290 140, 305 140, 330 140"/>
+  <path class="token run pick1" pathLength="100" d="M620 122 C 668 98, 690 84, 720 88"/>
+  <path class="token run pick2" pathLength="100" d="M620 140 C 668 140, 690 140, 720 140"/>
+  <path class="token run pick3" pathLength="100" d="M620 158 C 668 182, 690 196, 720 192"/>
+
+  <!-- Little spark near router (adds life) -->
+  <g class="spark" transform="translate(640 70)">
+    <rect x="0" y="0" width="2" height="10" rx="1" fill="var(--violet)"/>
+    <rect x="-4" y="4" width="10" height="2" rx="1" fill="var(--violet)"/>
+  </g>
+
+  <text x="70" y="236" class="hint">Tip: deterministic pre-checks run before routing (URLs, escalation keywords)</text>
+</svg>
+

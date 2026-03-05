@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 90" width="140" height="126" role="img" aria-label="Jumping graph bot mascot">
+  <style>
+    :root{
+      --ink:#0f172a;
+      --blue:#2563eb;
+      --blue2:#60a5fa;
+      --violet:#7c3aed;
+    }
+
+    .bot {
+      animation: jump .52s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+    .shadow {
+      animation: shadow-scale .52s ease-in-out infinite;
+    }
+    .left-arm {
+      animation: wave-left .52s ease-in-out infinite;
+      transform-origin: right center;
+    }
+    .right-arm {
+      animation: wave-right .52s ease-in-out infinite;
+      transform-origin: left center;
+    }
+    .left-node {
+      animation: node-bounce .52s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+    .right-node {
+      animation: node-bounce .52s ease-in-out infinite .08s;
+      transform-origin: center bottom;
+    }
+    .spark {
+      animation: spark .52s ease-in-out infinite;
+      transform-origin: center;
+      opacity: .0;
+    }
+
+    @keyframes jump {
+      0%, 100% { transform: translateY(0) scaleY(1) scaleX(1); }
+      28% { transform: translateY(-12px) scaleY(1.08) scaleX(0.96); }
+      50% { transform: translateY(-13px) scaleY(1.04) scaleX(0.99); }
+      82% { transform: translateY(-4px) scaleY(0.96) scaleX(1.05); }
+    }
+    @keyframes shadow-scale {
+      0%, 100% { transform: scaleX(1); opacity: 0.22; }
+      50% { transform: scaleX(0.42); opacity: 0.07; }
+    }
+    @keyframes wave-left {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-22deg); }
+    }
+    @keyframes wave-right {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(22deg); }
+    }
+    @keyframes node-bounce {
+      0%, 100% { transform: scaleY(1); }
+      40% { transform: scaleY(1.22); }
+      60% { transform: scaleY(0.86); }
+    }
+    @keyframes spark {
+      0% { transform: translateY(0); opacity: 0; }
+      40% { transform: translateY(-3px); opacity: .9; }
+      100% { transform: translateY(-10px); opacity: 0; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="var(--blue2)"/>
+      <stop offset="1" stop-color="var(--blue)"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse class="shadow" cx="50" cy="82" rx="22" ry="5" fill="#000"/>
+
+  <!-- Tiny spark (adds “life” on jump peak) -->
+  <g class="spark">
+    <rect x="49" y="6" width="2" height="6" rx="1" fill="var(--violet)"/>
+    <rect x="46" y="9" width="8" height="2" rx="1" fill="var(--violet)"/>
+  </g>
+
+  <!-- GraphBot group -->
+  <g class="bot">
+    <!-- Graph “nodes” on top (original, not Claude) -->
+    <rect class="left-node" x="21" y="10" width="10" height="14" rx="3" fill="var(--violet)"/>
+    <rect class="right-node" x="69" y="10" width="10" height="14" rx="3" fill="var(--violet)"/>
+    <path d="M31 18 H69" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+
+    <!-- Body: pixel-ish + high-contrast outline -->
+    <rect x="18" y="24" width="64" height="4" fill="var(--ink)" opacity=".08"/>
+    <rect x="14" y="28" width="72" height="34" rx="10" fill="url(#g)" stroke="var(--ink)" stroke-width="3"/>
+    <rect x="18" y="32" width="64" height="26" rx="8" fill="url(#g2)"/>
+
+    <!-- Visor -->
+    <rect x="24" y="36" width="52" height="18" rx="7" fill="#0b1220" opacity=".92"/>
+    <rect x="30" y="40" width="8" height="10" rx="2" fill="#fff" opacity=".92"/>
+    <rect x="62" y="40" width="8" height="10" rx="2" fill="#fff" opacity=".92"/>
+    <rect x="40" y="46" width="20" height="4" rx="2" fill="#fff" opacity=".35"/>
+
+    <!-- Arms -->
+    <rect class="left-arm" x="2" y="40" width="12" height="8" rx="3" fill="var(--violet)"/>
+    <rect class="right-arm" x="86" y="40" width="12" height="8" rx="3" fill="var(--violet)"/>
+
+    <!-- Legs -->
+    <rect x="26" y="62" width="12" height="12" rx="3" fill="var(--ink)" opacity=".10"/>
+    <rect x="62" y="62" width="12" height="12" rx="3" fill="var(--ink)" opacity=".10"/>
+    <rect x="24" y="60" width="12" height="14" rx="4" fill="url(#g)" stroke="var(--ink)" stroke-width="3"/>
+    <rect x="64" y="60" width="12" height="14" rx="4" fill="url(#g)" stroke="var(--ink)" stroke-width="3"/>
+  </g>
+</svg>
