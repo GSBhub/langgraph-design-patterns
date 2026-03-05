@@ -35,12 +35,15 @@ reason:
 flowchart TD
   U[User message] --> D{Pre-checks}
   D -->|Escalation keywords| H[escalate_human]
-  D -->|URL present| T[URL tool-first]
-  D -->|No| R{Router (small/fast)}
+  D -->|URL present| T[URL tool first]
+  D -->|No| R{Router}
   R -->|normal_chat| C[normal_chat]
   R -->|rag_chat| G[rag_chat]
   T --> C
 ```
+
+Notes:
+- Keep the router model small/fast (separate from drafting).
 
 ## Router prompt rules (starter)
 - Output only the route enum + a short reason (no answering).

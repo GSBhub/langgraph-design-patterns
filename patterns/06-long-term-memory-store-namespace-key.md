@@ -28,13 +28,16 @@ Use stable keys (often `user_id`) and namespaces (`prefs`, `profile`, `project:<
 ## Flow (minimal)
 ```mermaid
 flowchart TD
-  U[User message] --> R[Recall (user_id + namespace)]
+  U[User message] --> R[Recall facts]
   R --> A[Answer node]
   A --> S{Store?}
   S -->|Yes| W[Write compact fact]
   S -->|No| O[Done]
   W --> O
 ```
+
+Notes:
+- Recall uses `user_id` + a namespace (example: `("prefs", user_id)`).
 
 ## Failure modes
 - Storing raw transcripts (symptom: memory is huge and low-signal).
