@@ -14,3 +14,7 @@
 
 ## License
 By contributing, you agree that your contributions are licensed under the MIT License.
+
+---
+[![Home](https://img.shields.io/badge/Home-README-0f172a)](README.md)
+[![Cookbook](https://img.shields.io/badge/Cookbook-Examples-2563eb)](README.md#cookbook-example-milestones)

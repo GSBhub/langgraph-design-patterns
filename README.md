@@ -91,7 +91,7 @@ Each example is a milestone. Open its README for a guided walkthrough.
 | ![Progress](https://img.shields.io/badge/Progress-9%2F9-0f172a) ![Badge](https://img.shields.io/badge/Capstone-16a34a) | [07 — Capstone support agent](examples/07-capstone-support-agent/README.md) | router + tools + short-term + long-term + summary (ReAct-like note included) |
 
 ## Contributing
-- See `CONTRIBUTING.md`.
+- See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-MIT (see `LICENSE`).
+MIT (see [LICENSE](LICENSE)).
